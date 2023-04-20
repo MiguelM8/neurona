@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static tailwind_tags %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
+    <title>REDES NEURONALES</title>
+</head>
+<body>
+    <div class="flex flex-col justify-center items-center h-screen bg-slate-800 text-white">
+        <h1 class="font-bold italic  mb-5 text-2xl">Calculo de neurona</h1>
+        <div class="flex flex-col">
+            <form method="post">
+                {% csrf_token %}
+                <div class="flex flex-col">
+                    <label id="valor1" class="italic">Primer valor:</label>
+                    <input name="valor1" id="valor1" class="rounded py-2 px-2 bg-slate-600 focus:outline-none focus:bg-slate-500" maxlength="1" />
+                </div>
+                <div class="flex flex-col">
+                    <label id="valor2" class="italic">Segundo valor:</label>
+                    <input name="valor2" id="valor2" class="rounded py-2 px-2 bg-slate-600 focus:outline-none focus:bg-slate-500" maxlength="1"/>
+                </div>
+    
+                <div class="flex flex-col">
+                    <label class="italic">Predicción:</label>
+                    <input 
+                    disabled 
+                    value="{{salida}}"
+                    class="rounded py-2 px-2 disabled:bg-slate-400 bg-slate-600 focus:outline-none focus:bg-slate-500" />
+                </div>
+
+                <div class="mt-5">
+                    <input type="submit" value="Enviar" class="rounded bg-green-500 hover:bg-green-400 py-2 px-2 w-2/4"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
